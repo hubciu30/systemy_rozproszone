@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Systemy Rozproszone</title>
+		<meta name="description" content="Wysyłanie plików">
+		<meta name="author" content="Hubert Koloska">
+		<link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="jquery-ui.css" type="text/css">
+		<link rel="stylesheet" href="home/css/style.css">
+	</head>
+	<body style = "background-color: #303030;">
+		<div id="notify"></div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a id ="nick" class="navbar-brand" href="/home"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse ml-auto" id="navbar">
+				<ul class="navbar-nav mx-auto">
+					<li id="back" class="nav-item" style="display: none;">
+						<figure onclick="client.Wroc();">
+							<img src="home/img/return.png" alt=""/>
+							<figcaption>Wróć</figcaption>
+						</figure>
+					</li>
+					<li class="nav-item">
+						<figure onclick="client.DodajFolder();">
+							<img src="home/img/folder-add.png" alt=""/>
+							<figcaption>Dodaj folder</figcaption>
+						</figure>
+					</li>
+					<li class="nav-item">
+						<label for="add_file">
+							<figure>
+								<img src="home/img/file-add.png" alt=""/>
+								<figcaption>Dodaj plik</figcaption>
+							</figure>
+						</label>						
+						<input id="add_file" type="file" style="display:none;"/>
+					</li>
+					<li class="nav-item">				
+						<div id="active" class="aktywni" title="Ilość aktywnych użytkowników"></div>					
+					</li>		 
+				</ul>
+				
+			  	<form class="my-2 my-lg-0 ml-auto">
+					<button class="btn btn-secondary my-2 my-sm-0" onclick="client.Wyloguj();" type="button">Wyloguj</button>
+			  	</form>
+			</div>
+		</nav>
+
+
+		<div class="form-group">
+			<fieldset disabled="">
+				<div class="form-group">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text">Lokalizacja</span>
+					</div>
+					<input id="path" type="text" value="/" class="form-control">				
+				</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<table class="table table-hover table-dark">
+			<thead>
+			  <tr>
+				<th scope="col">Typ</th>
+				<th scope="col">Nazwa</th>
+				<th scope="col">Rozmiar</th>
+				<th scope="col">Operacje</th>
+			  </tr>
+			</thead>
+			<tbody id="ftp_list">
+			  
+			</tbody>
+		  </table>
+
+		<script src = "jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src = "jquery-ui.js"></script>
+		<script src = "bootstrap.min.js"></script>
+		<script src = "socket.io.min.js" type="text/javascript"></script>
+		<script src = "home/js/main.js" type="text/javascript"></script>
+	</body>
+</html>

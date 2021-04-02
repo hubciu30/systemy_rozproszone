@@ -1,0 +1,62 @@
+figure img
+{
+    max-width: 40px;
+    max-height: 40px;
+}
+
+figure{
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+}
+
+figcaption{
+    color: whitesmoke;
+    text-align: center;
+}
+
+li{
+    padding-left: 20px;
+}
+
+.aktywni
+{
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px, solid;
+    border: solid rgb(233, 69, 69);
+    border-radius: 100%;
+    background-color: rgb(233, 69, 69);
+}
+
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table{
+    margin-top: -30px;
+    text-align: center;
+}
+
+#path
+{
+    background-color: black;
+    color: green;
+}
+
+#notify
+{
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
