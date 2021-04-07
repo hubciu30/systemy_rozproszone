@@ -15,7 +15,7 @@ let CACHE =
 };
 
 app.use(session({
-	secret: 'secret_',
+	secret: '_secret_',
 	resave: true,
 	saveUninitialized: true
 }));
@@ -81,6 +81,7 @@ io.on('connection', (socket)=>
     socket.on('disconnect', ()=> 
     {
         if(CACHE.active > 0) CACHE.active = CACHE.active-1; 
+        io.sockets.emit('active', CACHE.active);
     });
 
     socket.on('postNewFile', (data)=>

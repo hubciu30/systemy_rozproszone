@@ -157,7 +157,7 @@ module.exports = (app, config, ApplicationController) =>{
                 file:
                 {
                     name: "", // nazwa pliku
-                    bytes:[] // byte array pliku
+                    bytes:"" // zawartosc pliku
                 }
             }
         */
