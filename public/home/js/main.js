@@ -392,6 +392,11 @@ const removeFromList = (name)=>
 
 // gniazda
 
+client.socket.on('disconnect', ()=>
+{
+    location.reload();
+})
+
 // pobiera liczbe aktywnych userow
 client.socket.on('active', (data) => {
     $("#active")[0].innerText = data;

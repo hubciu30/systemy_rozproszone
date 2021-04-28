@@ -8,12 +8,6 @@ const io = require('socket.io')(http);
 // import pliku konfiguracyjnego
 let config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 
-// pamiec serwera
-let CACHE = 
-{
-  active: 0
-};
-
 app.use(session({
 	secret: '_secret_',
 	resave: true,
@@ -66,8 +60,7 @@ app.post('/registr', ApplicationController.registration);
 app.post('/ping',ApplicationController.islogged,(req,res)=>{res.status(200).end();});
 // wyloguj
 app.post('/logout', (req,res)=>{
-  if(CACHE.active > 0) CACHE.active = CACHE.active-1;
-  io.sockets.emit('active', CACHE.active);
+  io.sockets.emit('active', io.sockets.sockets.size);
   req.session.destroy();
   res.status(200).end();
 });
@@ -76,11 +69,9 @@ app.post('/logout', (req,res)=>{
 io.on('connection', (socket)=>
 {
 
-    CACHE.active = CACHE.active+1;
     socket.on('disconnect', ()=> 
     {
-        if(CACHE.active > 0) CACHE.active = CACHE.active-1; 
-        io.sockets.emit('active', CACHE.active);
+        io.sockets.emit('active', io.sockets.sockets.size);
     });
 
     socket.on('postNewFile', (data)=>
@@ -107,7 +98,7 @@ io.on('connection', (socket)=>
       io.sockets.emit('getRename', data);
     });
 
-    io.sockets.emit('active', CACHE.active);
+    io.sockets.emit('active', io.sockets.sockets.size);
 });
 
 // KONIEC GNIAZD
