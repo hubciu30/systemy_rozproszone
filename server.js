@@ -66,11 +66,10 @@ app.post('/registr', ApplicationController.registration);
 app.post('/ping',ApplicationController.islogged,(req,res)=>{res.status(200).end();});
 // wyloguj
 app.post('/logout', (req,res)=>{
-  res.status(200);
   if(CACHE.active > 0) CACHE.active = CACHE.active-1;
   io.sockets.emit('active', CACHE.active);
   req.session.destroy();
-  res.end();
+  res.status(200).end();
 });
 
 // GNIAZDA
