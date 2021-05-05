@@ -123,7 +123,7 @@ exports.registration = async (req, res) =>
     }
     else
     {
-        res.status(401);
+        res.status(400);
         res.end();
     }
 }

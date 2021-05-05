@@ -40,7 +40,9 @@ module.exports = (app, config, ApplicationController) =>{
             const filename = req.query.filename;
             const robot = new ftp(config.ftp);
             await robot.connect();
+            console.log("PRZED")
             const temp_path = await robot.download(url+filename, req.session.ID+"_"+filename);
+            console.log("PO")
             await robot.disconnect();
             res.download(temp_path, async ()=>{await clear(temp_path);});
             console.log(utils.createLog(req.session.login+" pobiera plik o nazwie "+filename));

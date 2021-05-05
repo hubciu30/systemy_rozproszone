@@ -93,7 +93,8 @@ class Client{
     // pliki
 
     PobierzPlik = (nazwa)=>{
-        location.href="/download?url="+this.path+"&filename="+nazwa;    
+       // location.href="/download?url="+this.path+"&filename="+nazwa;    
+       window.open("/download?url="+this.path+"&filename="+nazwa, '_blank');
     }
     
     UsunPlik = async(nazwa)=>

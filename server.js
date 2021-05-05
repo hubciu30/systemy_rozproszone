@@ -109,5 +109,3 @@ http.listen(config.port, async function()
 	console.log("Inicjalizacja...");
 	console.log("Serwer został uruchomiony na porcie\t"+ config.port);
 });
-
-
